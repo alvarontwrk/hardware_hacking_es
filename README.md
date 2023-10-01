@@ -5,6 +5,53 @@
 
 ---
 
+# Índice
+
+<!-- TOC -->
+
+- [Hardware Hacking ES Comunidad](#hardware-hacking-es-comunidad)
+- [Índice](#%C3%ADndice)
+- [Encontrar puerto COM para el Bus Pirate](#encontrar-puerto-com-para-el-bus-pirate)
+- [Hacking EEPROM AT24C256 I2C 5V](#hacking-eeprom-at24c256-i2c-5v)
+        - [Material Requerido:](#material-requerido)
+    - [Paso 1: Conectar pinzas a EEPROM](#paso-1-conectar-pinzas-a-eeprom)
+    - [Paso 2: Conectarse al I2C con BusPirate](#paso-2-conectarse-al-i2c-con-buspirate)
+    - [Paso 3:  Localizar direcciones I2C](#paso-3--localizar-direcciones-i2c)
+    - [Paso 4:  Como leer y escribir con I2C](#paso-4--como-leer-y-escribir-con-i2c)
+            - [Como escribir I2C](#como-escribir-i2c)
+            - [Como leer I2C](#como-leer-i2c)
+- [Hacking FLASH SPI Winbond 25Q64FVSIG](#hacking-flash-spi-winbond-25q64fvsig)
+        - [Material Requerido:](#material-requerido)
+    - [Paso 1: Conectar pinzas a SPI FLASH](#paso-1-conectar-pinzas-a-spi-flash)
+    - [Paso 2: Identificar la SPI Flash](#paso-2-identificar-la-spi-flash)
+    - [Paso 3: Extraer contenido SPI Flash](#paso-3-extraer-contenido-spi-flash)
+    - [Paso 4: Extracción de la imagen](#paso-4-extracci%C3%B3n-de-la-imagen)
+- [Hacking Router TP-Link TL-WR841N](#hacking-router-tp-link-tl-wr841n)
+        - [Material Requerido:](#material-requerido)
+    - [Paso 1: Comprar el router.](#paso-1-comprar-el-router)
+    - [Paso 2: Abriendo el router.](#paso-2-abriendo-el-router)
+    - [Paso 3: Identificar componentes y UART.](#paso-3-identificar-componentes-y-uart)
+            - [Cada circulo es una parte interesante de la pcb para nosotros:](#cada-circulo-es-una-parte-interesante-de-la-pcb-para-nosotros)
+    - [Paso 4: Soldar pines a UART y ELIMINAR R18.](#paso-4-soldar-pines-a-uart-y-eliminar-r18)
+    - [Paso 5: Conectarse al UART.](#paso-5-conectarse-al-uart)
+        - [Usando USB-to-TTL](#usando-usb-to-ttl)
+        - [Usando Bus Pirate](#usando-bus-pirate)
+    - [Paso 6: Extraer Sistema de archivos y Firmware](#paso-6-extraer-sistema-de-archivos-y-firmware)
+        - [Obtención de la flash via MTD](#obtenci%C3%B3n-de-la-flash-via-mtd)
+    - [Paso 7: Extraccion del Firmware](#paso-7-extraccion-del-firmware)
+- [Pull-up y Pull-down para analfabetos.](#pull-up-y-pull-down-para-analfabetos)
+    - [Introducción.](#introducci%C3%B3n)
+    - [¡Terror a las antenas!](#%C2%A1terror-a-las-antenas)
+    - [Conceptos previos: ¿Qué es lo que veo?...](#conceptos-previos-%C2%BFqu%C3%A9-es-lo-que-veo)
+        - [Elementos del circuito.](#elementos-del-circuito)
+    - [Pull-up: ¡Manos a la obra!](#pull-up-%C2%A1manos-a-la-obra)
+    - [¡Resistencias! ¡Al rescate!](#%C2%A1resistencias-%C2%A1al-rescate)
+    - [Pulldown: vamos a ser breves.](#pulldown-vamos-a-ser-breves)
+    - [Resumen: ¡no des más la chapa!](#resumen-%C2%A1no-des-m%C3%A1s-la-chapa)
+    - [¿Dónde encuentro los Pull-Up en el BusPirate?](#%C2%BFd%C3%B3nde-encuentro-los-pull-up-en-el-buspirate)
+    - [Por si se te antojan algunos detalles...](#por-si-se-te-antojan-algunos-detalles)
+
+<!-- /TOC -->
 # Encontrar puerto COM para el Bus Pirate
 
 **Importante hacer estos pasos antes de conectar el Bus Pirate**
